@@ -9,6 +9,7 @@ from email.mime.text import MIMEText
 # secretkey ile jwt arasındaki bağlantı 
 # mail kendi mailimizden gönderiliyor
 # mail ve şifresi direkt kodda olmasın
+# uvicorn app:app --reload
 
 app = FastAPI()
 SECRET_KEY = "my_secret_key"  # Önce bu satır tanımlanmalı
@@ -93,5 +94,5 @@ def send_email(to_email: str, token: str):
 
     with smtplib.SMTP("smtp.gmail.com", 587) as server:
         server.starttls()
-        server.login("talhaaeroglu1@gmail.com", "khnj bbxo cqxy xxjf")
+        server.login("talhaaeroglu1@gmail.com", "password")
         server.sendmail("talhaaerolgu1@gmail.com", to_email, message.as_string())
