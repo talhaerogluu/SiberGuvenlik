@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Doğrulama</title>
+</head>
+<body>
+    <h2>Email Doğrulama</h2>
+    <p id="message">Lütfen bekleyin, email doğrulanıyor...</p>
+
+    <script>
+        async function verifyEmail() {
+            // URL'den token'i al
+            const params = new URLSearchParams(window.location.search);
+            const token = params.get("token");
+
+            if (!token) {
+                document.getElementById("message").textContent = "Geçersiz doğrulama linki!";
+                return;
+            }
+
+            // FastAPI'ye istek gönder
+            let response = await fetch(`http://127.0.0.1:8000/verify-email?token=${token}`, {
+                method: "GET"
+            });
+
+            let result = await response.json();
+            document.getElementById("message").textContent = result.message;
+        }
+
+        verifyEmail();  // Sayfa yüklendiğinde otomatik çalıştır
+    </script>
+</body>
+</html>

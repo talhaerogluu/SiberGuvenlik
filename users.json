@@ -2,11 +2,7 @@
     "talhaaeroglu1@gmail.com": {
         "id": "1",
         "email": "talhaaeroglu1@gmail.com",
+        "password": "$2b$12$A5E0hGL5c6khOnRjgCypxO.hQ0XEdJc72P9lUa1h54paAuw5PLa/.",
         "is_email_verified": true
-    },
-    "aliveli@gmail.com": {
-        "id": "2",
-        "email": "aliveli@gmail.com",
-        "is_email_verified": false
     }
 }
